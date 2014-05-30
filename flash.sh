@@ -371,6 +371,25 @@ case "$DEVICE" in
 	flash_heimdall $PROJECT
 	;;
 
+"rk30sdk")
+	cp device/rockchip/rk30sdk/buildspec.mk ./buildspec.mk
+	device/rockchip/rk30sdk/mkimage.sh
+	rm ./buildspec.mk
+	device/rockchip/rk30sdk/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
+	echo ""
+	echo Copy \"rockdev\" to windows and run \"rockdev\\AndroidTool.exe\" to flash your device
+	echo ""
+	echo -e "\033[01;33m"
+	echo "  Detail steps:"
+	echo "   1. copy \"rockdev\" to windows (or map a network drive from linux to windows)"
+	echo "   2. double click \"rockdev\\AndroidTool.exe\" to run the flash application"
+	echo "   3. press recovery key of the device and plug in the USB cable"
+	echo "   3a. wait for the Rockusb interface enumerates in windows"
+	echo "       you need install driver under \"rockdev\\Driver\" for the 1st time"
+	echo "   4. click Run button in AndroidTool to flash"
+	echo -e "\033[00m"
+	;;
+
 *)
 	if [[ $(type -t flash_${DEVICE}) = function ]]; then
 		flash_${DEVICE} $PROJECT
