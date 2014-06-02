@@ -78,6 +78,7 @@ case "$1" in
 "rk30sdk")
 	echo DEVICE=rk30sdk >> .tmp-config &&
 	echo PRODUCT_NAME=rk30sdk >> .tmp-config &&
+	echo LUNCH=rk30sdk-userdebug >> .tmp-config &&
 	repo_sync $1
 	;;
 
