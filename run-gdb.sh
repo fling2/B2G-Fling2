@@ -27,6 +27,9 @@ if [ -z "${GDB}" ]; then
       echo "Not sure where gdb is located. Override using GDB= or fix the script."
       exit 1
    fi
+   if [ ! -f "${GDB}" ]; then
+      GDB=prebuilts/gcc/$(uname -s | tr "[[:upper:]]" "[[:lower:]]")-x86/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gdb
+   fi
 fi
 
 B2G_BIN=/system/b2g/b2g
