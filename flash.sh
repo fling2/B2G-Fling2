@@ -376,6 +376,7 @@ case "$DEVICE" in
 	device/rockchip/rk30sdk/mkimage.sh
 	rm ./buildspec.mk
 	device/rockchip/rk30sdk/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
+	cp out/target/product/rk30sdk/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
 	echo ""
 	echo Copy \"rockdev\" to windows and run \"rockdev\\AndroidTool.exe\" to flash your device
 	echo ""
