@@ -409,7 +409,11 @@ case "$DEVICE" in
 	echo "   adb reboot fastboot"
 	echo "   fastboot -i 0x930 oem unlock"
 	echo "   fastboot -i 0x930 oem unlock_accept"
-	echo "   fastboot -i 0x930 flash kernel rockdev/Image/kernel.img"
+	echo "   fastboot -i 0x930 flash boot     rockdev/Image/boot.img"
+	echo "   fastboot -i 0x930 flash kernel   rockdev/Image/kernel.img"
+	echo "   fastboot -i 0x930 flash misc     rockdev/Image/misc_wipe_all.img"
+	echo "   fastboot -i 0x930 flash recovery rockdev/Image/recovery.img"
+	echo "   fastboot -i 0x930 flash system   rockdev/Image/system.img"
 	echo ""
 	echo -e "\033[00m"
 	;;
