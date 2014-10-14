@@ -371,6 +371,14 @@ case "$DEVICE" in
 	flash_heimdall $PROJECT
 	;;
 
+"rk3066")
+	# for kk4.4
+	cp device/rockchip/rksdk/buildspec-rk3066.mk ./buildspec.mk
+	device/rockchip/rksdk/mkimage.sh
+	rm ./buildspec.mk
+	rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
+	;;
+
 "rk30sdk")
 	cp device/rockchip/rk30sdk/buildspec.mk ./buildspec.mk
 	device/rockchip/rk30sdk/mkimage.sh
