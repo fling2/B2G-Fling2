@@ -371,20 +371,23 @@ case "$DEVICE" in
 	flash_heimdall $PROJECT
 	;;
 
-"rk3066")
-	# for kk4.4
-	cp device/rockchip/rksdk/buildspec-rk3066.mk ./buildspec.mk
-	device/rockchip/rksdk/mkimage.sh
-	rm ./buildspec.mk
-	rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
-	;;
-
-"rk30sdk")
-	cp device/rockchip/rk30sdk/buildspec.mk ./buildspec.mk
-	device/rockchip/rk30sdk/mkimage.sh
-	rm ./buildspec.mk
-	device/rockchip/rk30sdk/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
-	cp out/target/product/rk30sdk/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
+"rk30sdk"|"rk3066")
+	if [ "$DEVICE" == "rk3066" ]; then
+		# for kk4.4
+		cp device/rockchip/rksdk/buildspec-rk3066.mk ./buildspec.mk
+		device/rockchip/rksdk/mkimage.sh
+		rm ./buildspec.mk
+		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
+		cp out/target/product/rk3066/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
+	fi
+	if [ "$DEVICE" == "rk30sdk" ]; then
+		# for jb4.2
+		cp device/rockchip/rk30sdk/buildspec.mk ./buildspec.mk
+		device/rockchip/rk30sdk/mkimage.sh
+		rm ./buildspec.mk
+		device/rockchip/rk30sdk/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
+		cp out/target/product/rk30sdk/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
+	fi
 	echo ""
 	echo ""
 	echo There are two methods to flash your device:
