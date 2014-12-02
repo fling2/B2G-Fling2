@@ -89,6 +89,13 @@ case "$1" in
 	repo_sync $1
 	;;
 
+"rk3188-kk")
+	echo DEVICE=rk3188 >> .tmp-config &&
+	echo PRODUCT_NAME=rk3188 >> .tmp-config &&
+	echo LUNCH=rk3188-userdebug >> .tmp-config &&
+	repo_sync $1
+	;;
+
 "galaxy-s2")
 	echo DEVICE=galaxys2 >> .tmp-config &&
 	repo_sync $1

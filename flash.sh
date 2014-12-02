@@ -371,10 +371,18 @@ case "$DEVICE" in
 	flash_heimdall $PROJECT
 	;;
 
-"rk30sdk"|"rk3066")
+"rk30sdk"|"rk3066"|"rk3188")
 	if [ "$DEVICE" == "rk3066" ]; then
 		# for kk4.4
 		cp device/rockchip/rksdk/buildspec-rk3066.mk ./buildspec.mk
+		device/rockchip/rksdk/mkimage.sh
+		rm ./buildspec.mk
+		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
+		cp out/target/product/rk3066/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
+	fi
+	if [ "$DEVICE" == "rk3188" ]; then
+		# for kk4.4
+		cp device/rockchip/rksdk/buildspec-rk3188.mk ./buildspec.mk
 		device/rockchip/rksdk/mkimage.sh
 		rm ./buildspec.mk
 		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
