@@ -386,7 +386,7 @@ case "$DEVICE" in
 		device/rockchip/rksdk/mkimage.sh
 		rm ./buildspec.mk
 		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
-		cp out/target/product/rk3066/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
+		cp out/target/product/rk3188/obj/UBOOT/RK*.bin rockdev/
 	fi
 	if [ "$DEVICE" == "rk30sdk" ]; then
 		# for jb4.2
