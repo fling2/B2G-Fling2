@@ -379,6 +379,7 @@ case "$DEVICE" in
 		rm ./buildspec.mk
 		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
 		cp out/target/product/rk3066/obj/UBOOT/RK30xxLoader\(L\)_V0.02_PRELIMINARY_EMMC_ONLY.bin rockdev/
+		exit 0
 	fi
 	if [ "$DEVICE" == "rk3188" ]; then
 		# for kk4.4
@@ -387,6 +388,7 @@ case "$DEVICE" in
 		rm ./buildspec.mk
 		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
 		cp out/target/product/rk3188/obj/UBOOT/RK*.bin rockdev/
+		exit 0
 	fi
 	if [ "$DEVICE" == "rk30sdk" ]; then
 		# for jb4.2
