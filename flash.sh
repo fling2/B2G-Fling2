@@ -388,6 +388,7 @@ case "$DEVICE" in
 		rm ./buildspec.mk
 		rkst/mkkrnlimg out/target/product/$DEVICE/kernel rockdev/Image/kernel.img
 		cp out/target/product/rk3188/obj/UBOOT/RK*.bin rockdev/
+		[ -x rockdev/mkupdate.sh ] && rockdev/mkupdate.sh
 		exit 0
 	fi
 	if [ "$DEVICE" == "rk30sdk" ]; then
