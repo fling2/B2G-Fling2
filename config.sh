@@ -89,7 +89,7 @@ case "$1" in
 	repo_sync $1
 	;;
 
-"rk3188-kk22")
+"rk3188-kk22"|"rk3188-kk-master")
 	echo DEVICE=rk3188 >> .tmp-config &&
 	echo PRODUCT_NAME=rk3188 >> .tmp-config &&
 	echo LUNCH=rk3188-userdebug >> .tmp-config &&
